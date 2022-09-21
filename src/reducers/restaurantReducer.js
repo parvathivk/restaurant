@@ -1,15 +1,18 @@
 import {
+    RESTAURANT_LIST_RESQUEST,
     RESTAURANT_LIST_SUCCESS,
     RESTAURANT_LIST_FAIL
 } from '../constants/restaurantConstant'
 
-export const restuarantListReducer=(state={ restaurants: []},actions)=>{
-    switch(actions.type){
+export const restaurantListReducer=(state={ restaurants: []},action)=>{
+    switch(action.type){
+        case RESTAURANT_LIST_RESQUEST:
+            return{loading: true,restaurants:[]}
         case RESTAURANT_LIST_SUCCESS:
-            return{restaurants: action.payload}   
+            return{loading:false,restaurants: action.payload}   
         
         case RESTAURANT_LIST_FAIL:
-            return{restaurants:action.console.error}
+            return{loading:false,restaurants:action.error}
 
         default:
             return state

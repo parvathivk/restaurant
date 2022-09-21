@@ -2,7 +2,7 @@ import {
         RESTAURANT_LIST_RESQUEST,
         RESTAURANT_LIST_SUCCESS,
         RESTAURANT_LIST_FAIL
-    } from './constants/restaurantConstant'
+    } from '../constants/restaurantConstant'
 
 import axios from 'axios'
 
@@ -16,7 +16,7 @@ export const listRestaurants=()=>async(dispatch)=>{
 
     } catch (error) {
         dispatch({
-            type:RESTAURANT_LIST_FAIL, error:error
+            type:RESTAURANT_LIST_FAIL, payload:error
         })   
     }
 }
